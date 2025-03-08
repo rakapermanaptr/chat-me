@@ -33,8 +33,16 @@ kotlin {
     }
     
     sourceSets {
+        all {
+            languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
+        }
+
         commonMain.dependencies {
             //put your multiplatform dependencies here
+            implementation(libs.multiplatform.settings.no.arg)
+            implementation(libs.multiplatform.settings.serialization)
+            implementation(libs.multiplatform.settings.coroutines)
+            implementation(libs.kmm.viewmodel.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
